@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tic-Tac-Toe v1.2 - Pro Edition</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- MÀN HÌNH MENU CÀI ĐẶT -->
+  <div id="menu-screen" class="screen">
+    <h1>🎮 Tic-Tac-Toe v1.2</h1>
+    <p class="subtitle">Trò chơi Caro siêu cấp thông minh</p>
+
+    <div class="form-group">
+      <label>Chế độ chơi:</label>
+      <select id="mode-select">
+        <option value="pvp">👥 2 Người chơi</option>
+        <option value="pve">🤖 Đấu với Máy</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label>Tên Người chơi 1 (X):</label>
+      <input type="text" id="player1-name" value="Player 1" placeholder="Nhập tên...">
+    </div>
+
+    <div class="form-group" id="p2-group">
+      <label>Tên Người chơi 2 (O):</label>
+      <input type="text" id="player2-name" value="Player 2" placeholder="Nhập tên...">
+    </div>
+
+    <div class="form-group">
+      <label>Bạn muốn chơi quân gì?</label>
+      <select id="symbol-select">
+        <option value="X">Quân X (Đánh trước)</option>
+        <option value="O">Quân O (Đánh sau)</option>
+      </select>
+    </div>
+
+    <button id="start-btn" class="btn-main">Bắt đầu chơi 🚀</button>
+
+    <!-- PHẦN CHỦ QUYỀN / CREDITS -->
+    <div class="copyright-box">
+      <p>👑 <strong>Chủ quyền dự án:</strong> Phát triển bởi Khoai-Lang-20</p>
+      <p>📅 Phiên bản: v1.2 Pro Edition</p>
+    </div>
+  </div>
+
+  <!-- MÀN HÌNH TRÒ CHƠI -->
+  <div id="game-screen" class="screen hidden">
+    <div class="game-header">
+      <button id="back-menu-btn" class="btn-secondary">⬅️ Menu</button>
+      <h2 id="turn-display">Lượt của: X</h2>
+    </div>
+
+    <!-- Bàn cờ 3x3 -->
+    <div class="board" id="board">
+      <div class="cell" data-index="0"></div>
+      <div class="cell" data-index="1"></div>
+      <div class="cell" data-index="2"></div>
+      <div class="cell" data-index="3"></div>
+      <div class="cell" data-index="4"></div>
+      <div class="cell" data-index="5"></div>
+      <div class="cell" data-index="6"></div>
+      <div class="cell" data-index="7"></div>
+      <div class="cell" data-index="8"></div>
+    </div>
+
+    <div class="game-footer">
+      <button id="restart-btn" class="btn-main">Chơi lại ván mới 🔄</button>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
