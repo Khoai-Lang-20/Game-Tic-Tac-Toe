@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tic-Tac-Toe - Chọn phiên bản</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      background-color: #f4f4f9;
+      padding: 50px 20px;
+    }
+    h1 { color: #333; }
+    .btn-container {
+      margin-top: 30px;
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      max-width: 300px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    a.btn {
+      display: block;
+      padding: 12px 20px;
+      background-color: #2ecc71;
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      border-radius: 8px;
+      transition: 0.2s;
+    }
+    a.btn:hover { background-color: #27ae60; }
+  </style>
+</head>
+<body>
+  <h1>🎮 Tic-Tac-Toe Game</h1>
+  <p>Vui lòng chọn phiên bản muốn chơi:</p>
+
+  <div class="btn-container">
+    <a href="./v1.0/" class="btn">Chơi Phiên Bản v1.0 (Cơ bản)</a>
+    <!-- Sau này có v2.0 chỉ cần bỏ câu lệnh bên dưới ra: -->
+    <!-- <a href="./v2.0/" class="btn">Chơi Phiên Bản v2.0 (Mới nhất)</a> -->
+  </div>
+</body>
+</html>
