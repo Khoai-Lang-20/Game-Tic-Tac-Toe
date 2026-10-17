@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tic-Tac-Toe v1.2 - Chế độ Máy & 2 Người</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Tic-Tac-Toe v1.2</h1>
+    
+    <!-- Lựa chọn chế độ chơi -->
+    <div class="mode-select">
+      <label for="game-mode">Chế độ chơi: </label>
+      <select id="game-mode">
+        <option value="pvp">👥 2 Người chơi</option>
+        <option value="pve">🤖 Đấu với Máy</option>
+      </select>
+    </div>
+
+    <!-- Thông báo lượt đi / kết quả -->
+    <div id="status">Lượt của: <span id="current-player">X</span></div>
+    
+    <!-- Bàn cờ 3x3 -->
+    <div class="board" id="board">
+      <div class="cell" data-index="0"></div>
+      <div class="cell" data-index="1"></div>
+      <div class="cell" data-index="2"></div>
+      <div class="cell" data-index="3"></div>
+      <div class="cell" data-index="4"></div>
+      <div class="cell" data-index="5"></div>
+      <div class="cell" data-index="6"></div>
+      <div class="cell" data-index="7"></div>
+      <div class="cell" data-index="8"></div>
+    </div>
+    
+    <button id="restart-btn">Chơi lại</button>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
