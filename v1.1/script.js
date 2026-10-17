@@ -12,7 +12,8 @@ const winPatterns = [
 let options = ["", "", "", "", "", "", "", "", ""];
 let currentPlayer = "X";
 let running = true;
-let isPvE = false; // Mặc định chơi 2 người
+let isPvE = false; 
+let isBotThinking = false; // Biến khóa bàn cờ khi máy đang suy nghĩ
 
 function initGame() {
   cells.forEach(cell => cell.addEventListener('click', cellClicked));
@@ -29,14 +30,22 @@ function changeMode() {
 function cellClicked() {
   const cellIndex = this.getAttribute('data-index');
 
-  if (options[cellIndex] !== "" || !running) return;
+  // ĐIỀU KIỆN SỬA LỖI: 
+  // Nếu ô đã đánh, game dừng, HOẶC Máy đang nghĩ (isBotThinking = true) thì KHÔNG CHO BẤM
+  if (options[cellIndex] !== "" || !running || isBotThinking) return;
 
   updateCell(this, cellIndex);
   if (checkWinner()) return;
 
-  // Nếu đang ở chế độ Đấu với Máy và tới lượt Máy (O)
+  // Nếu đang đấu với Máy và đến lượt Máy (O)
   if (isPvE && currentPlayer === "O" && running) {
-    setTimeout(botMove, 400); // Trễ 0.4s cho cảm giác tự nhiên
+    isBotThinking = true; // KHÓA bàn cờ lại ngay lập tức
+    statusText.innerHTML = `🤖 Máy đang nghĩ...`;
+    
+    setTimeout(() => {
+      botMove();
+      isBotThinking = false; // MỞ KHÓA bàn cờ sau khi Máy đánh xong
+    }, 400); 
   }
 }
 
@@ -93,12 +102,12 @@ function botMove() {
   // 1. Máy tìm nước thắng ngay
   let bestMove = findWinningMove("O");
   
-  // 2. Nếu không thể thắng ngay, máy chặn người chơi (X) thắng
+  // 2. Chặn người chơi (X) thắng
   if (bestMove === null) {
     bestMove = findWinningMove("X");
   }
 
-  // 3. Nếu không có nguy cơ, đánh ngẫu nhiên
+  // 3. Đánh ngẫu nhiên
   if (bestMove === null) {
     const randomIndex = Math.floor(Math.random() * emptyIndices.length);
     bestMove = emptyIndices[randomIndex];
@@ -109,13 +118,11 @@ function botMove() {
   checkWinner();
 }
 
-// Hàm hỗ trợ Máy tìm nước đi nguy hiểm/chiến thắng
 function findWinningMove(player) {
   for (let pattern of winPatterns) {
     const [a, b, c] = pattern;
     const values = [options[a], options[b], options[c]];
     
-    // Nếu có 2 ô cùng là player và 1 ô trống
     if (values.filter(v => v === player).length === 2 && values.includes("")) {
       if (options[a] === "") return a;
       if (options[b] === "") return b;
@@ -128,6 +135,7 @@ function findWinningMove(player) {
 function restartGame() {
   currentPlayer = "X";
   options = ["", "", "", "", "", "", "", "", ""];
+  isBotThinking = false; // Reset lại khóa bàn cờ
   statusText.innerHTML = `Lượt của: <span>${currentPlayer}</span>`;
   cells.forEach(cell => {
     cell.textContent = "";
