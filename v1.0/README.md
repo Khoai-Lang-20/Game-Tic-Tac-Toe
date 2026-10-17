@@ -6,7 +6,7 @@ Chán chán nên làm một game nho nhỏ! Đây là trò chơi **Tic-Tac-Toe**
 ---
 
 ## 🚀 Chơi thử trực tuyến
-👉 **[Nhấp vào đây để chơi ngay](https://khoai-lang-20.github.io/tic-tac-toe/v1.0/)**
+👉 **[Nhấp vào đây để chơi ngay](https://khoai-lang-20.github.io/game-tic-tac-toe/v1.0/)**
 
 ---
 
