@@ -1,0 +1,145 @@
+* {
+  box-sizing: border-box;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+  background: linear-gradient(135deg, #74b9ff, #a29bfe);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+}
+
+.screen {
+  background: white;
+  padding: 30px;
+  border-radius: 16px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+  width: 360px;
+  text-align: center;
+}
+
+.hidden {
+  display: none;
+}
+
+h1 {
+  color: #2d3436;
+  margin-bottom: 5px;
+}
+
+.subtitle {
+  color: #636e72;
+  font-size: 0.9rem;
+  margin-bottom: 20px;
+}
+
+.form-group {
+  margin-bottom: 15px;
+  text-align: left;
+}
+
+.form-group label {
+  display: block;
+  font-size: 0.85rem;
+  font-weight: bold;
+  color: #2d3436;
+  margin-bottom: 5px;
+}
+
+.form-group input, .form-group select {
+  width: 100%;
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #dfe6e9;
+  font-size: 0.95rem;
+  outline: none;
+  background-color: #f1f2f6;
+}
+
+.btn-main {
+  width: 100%;
+  padding: 12px;
+  font-size: 1rem;
+  font-weight: bold;
+  color: white;
+  background-color: #00b894;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.2s;
+  margin-top: 10px;
+}
+
+.btn-main:hover {
+  background-color: #00a884;
+}
+
+.btn-secondary {
+  padding: 6px 12px;
+  font-size: 0.85rem;
+  font-weight: bold;
+  color: #636e72;
+  background-color: #dfe6e9;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.btn-secondary:hover {
+  background-color: #b2bec3;
+}
+
+/* Phần Chủ quyền */
+.copyright-box {
+  margin-top: 25px;
+  padding-top: 15px;
+  border-top: 1px solid #dfe6e9;
+  font-size: 0.8rem;
+  color: #636e72;
+  line-height: 1.4;
+}
+
+/* Giao diện Game Screen */
+.game-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.game-header h2 {
+  font-size: 1.1rem;
+  color: #2d3436;
+  margin: 0;
+}
+
+.board {
+  display: grid;
+  grid-template-columns: repeat(3, 95px);
+  grid-template-rows: repeat(3, 95px);
+  gap: 8px;
+  margin: 0 auto 20px auto;
+  justify-content: center;
+}
+
+.cell {
+  background-color: #f1f2f6;
+  border-radius: 8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2.5rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.cell:hover {
+  background-color: #dfe6e9;
+}
+
+.cell.x { color: #e74c3c; }
+.cell.o { color: #3498db; }
